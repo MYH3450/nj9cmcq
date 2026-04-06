@@ -128,3 +128,14 @@ def create_historical_event(request):
             return redirect('home')
         else:
             return render(request, 'create_historical_event.html', {'form': form, 'section': section})
+def custom_404(request,exeption):
+    return render(request,'errors/404.html',status=404)
+def custom_500(request):
+    return render(request,'errors/500.html',status=500)
+def custom_403(request, exception):
+    """处理403错误的视图函数"""
+    return render(request, 'errors/403.html', status=403)
+
+def custom_400(request, exception):
+    """处理400错误的视图函数"""
+    return render(request, 'errors/400.html', status=400)
